@@ -1,0 +1,16 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Merhaba Bulut Bilişim - Kararlı Sürüm (v1)"
+
+# Sağlık kontrolü (Health Check) yaptığımız adres burası!
+@app.route('/health')
+def health():
+    # Şu an her şey yolunda, 200 OK dönüyoruz.
+    return "OK: Sistem Sağlıklı", 200
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
