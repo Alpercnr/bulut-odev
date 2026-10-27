@@ -1,16 +1,26 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Merhaba Bulut Bilişim - Kararlı Sürüm (v1)"
+    return "Dockerize Edilmiş Bulut Uygulaması - v1 (Sağlam)"
 
-# Sağlık kontrolü (Health Check) yaptığımız adres burası!
 @app.route('/health')
 def health():
-    # Şu an her şey yolunda, 200 OK dönüyoruz.
-    return "OK: Sistem Sağlıklı", 200
+    # Her şey yolunda, Render bu 200 OK yanıtını görünce mutlu olacak.
+    return "OK", 200
+
+
+
+#     @app.route('/health')
+# def health():
+#     # BİLEREK BOZUYORUZ: Veritabanı veya servis çöktü simülasyonu
+#     return "CRITICAL ERROR", 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
+
+
