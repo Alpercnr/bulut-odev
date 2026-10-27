@@ -9,10 +9,8 @@ def home():
 # Sağlık kontrolü (Health Check) yaptığımız adres burası!
 @app.route('/health')
 def health():
-    # Şu an her şey yolunda, 200 OK dönüyoruz.
-
-    return "OK: Sistem Sağlıklı", 200
-
+    # BİLEREK BOZUYORUZ: Veritabanı veya servis çöktü simülasyonu
+    return "CRITICAL ERROR", 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
