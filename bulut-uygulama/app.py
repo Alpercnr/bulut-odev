@@ -7,10 +7,16 @@ def home():
     return "Merhaba Bulut Bilişim - Kararlı Sürüm (v1)"
 
 # Sağlık kontrolü (Health Check) yaptığımız adres burası!
+#@app.route('/health')
+#def health():
+    # Şu an her şey yolunda, 200 OK dönüyoruz.
+#    return "OK: Sistem Sağlıklı", 200
+
+# Sağlık kontrolü (Health Check) yaptığımız adres burası!
 @app.route('/health')
 def health():
-    # Şu an her şey yolunda, 200 OK dönüyoruz.
-    return "OK: Sistem Sağlıklı", 200
+    # BİLEREK BOZUYORUZ: Sistem çöktü simülasyonu
+    return "ERROR: Veritabanı bağlantısı koptu!", 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
