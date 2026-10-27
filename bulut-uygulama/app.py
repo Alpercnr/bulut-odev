@@ -9,8 +9,8 @@ def home():
 
 @app.route('/health')
 def health():
-    # Her şey yolunda, Render bu 200 OK yanıtını görünce mutlu olacak.
-    return "OK", 200
+    # BİLEREK BOZUYORUZ: Veritabanı veya servis çöktü simülasyonu
+    return "CRITICAL ERROR", 500
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
